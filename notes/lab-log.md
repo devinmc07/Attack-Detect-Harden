@@ -40,3 +40,25 @@
 - Including a baseline gives hardening a measurable before and after
 
 **Next:** Attacking the victim from Kali and catching it in Wazuh
+
+## 10/28/2026 Phase 4
+**What I did:** 
+- Ran an SSH brute force attack from Kali against the victim Ubuntu machine (port 22) using Hydra
+- Confirmed Wazuh fired high severity alerts on every attempt
+- Rule triggered: '[40112]' - "[Multiple authentication failures followed by a success.]" (Level 12)
+- Source IP in the alert matched Kali's IP, confirming correct attribution
+- Attack 1 - port scan ('nmap -sS -sV 10.0.2.3') 
+- Attack 2 - Hydra brute force attempt ('hydra -l labuser -P passwords.txt ssh://10.0.2.3 -o ../reports/attack2-hydra.txt')
+- Attack 3 - Successful SSH login after brute force 
+
+**What broke:** 
+- Wazuh couldn't detect API to connect to
+
+**How I fixed it:**
+- Restarted wazuh-manager from wazuh server OVA 
+
+**What I learned:** 
+- Wazuh's host-based agent reliably redetects brute-force attempts at the authentication layer. Each failed SSH attempt generated a 'medium severity' alert, after ultiple failed attempts it generated high severity alerts 
+- MITRE ATT&CK Techniques: Valid Accounts (T1078), Brute Force (T1110), Sudo and Sudo Caching (T154 and 8.003), 
+
+**Next:** Harden the victim machine
