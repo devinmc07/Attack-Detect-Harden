@@ -1,5 +1,6 @@
 ## 10/27/2026
 **What I did:** Built the "soclab" NAT network in VirtualBox, installed the victim Ubuntu VM, established ssh from my Kali attack VM
+
 **What broke:** SSH was initially refused
 **How I fixed it:** The SSH server wasn't installed on my fresh Ubuntu VM. Ran 'sudo apt install openssh-server'.
 **What I learned:** "Connection refused" means the host is reachable, but nothing is listening on that port
