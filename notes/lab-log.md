@@ -1,4 +1,4 @@
-## 10/27/2026
+## 10/27/2026 Phase 1
 **What I did:** Built the "soclab" NAT network in VirtualBox, installed the victim Ubuntu VM, established ssh from my Kali attack VM
 
 **What broke:** SSH was initially refused
@@ -9,7 +9,7 @@
 
 **Next:** Install a Wazuh VM and configure it in Virtual Box 
 
-## 10/27/2026
+## 10/27/2026 Phase 2
 **What I did:** Imported a WazuhOVA into VirtualBox, put it on the "soclab" network, installed the Wazuh agent onto the victim-ubuntu VM
 
 **What broke:** sudo kept refusing to run on my victim VM when I was trying to install the Wazuh package since my user didn't have admin privileges 
@@ -20,7 +20,7 @@
 
 **Next:** Create a baseline using Lynis and Nmap
 
-## 10/27/2026
+## 10/27/2026 Phase 3
 **What I did:** 
 - Installed Lynis on the victim Ubuntu VM and ran a full system audit, saving the output to 'lynis-baseline.txt'
 - Ran an Nmap scan from Kali against he victim and saved it as 'nmap-baseline.txt'
