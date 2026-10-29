@@ -1,2 +1,0 @@
-# Hydra v9.7 run at 2026-10-28 21:24:20 on 10.0.2.3 ssh (hydra -l labuser -P /home/devin/Downloads/passwords.txt -o /home/devin/Downloads/Attack-Detect-Harden/reports/posthardenattack.txt ssh://10.0.2.3)
-# Hydra v9.7 run at 2026-10-28 21:24:34 on 10.0.2.3 ssh (hydra -l labuser -P /home/devin/Downloads/passwords.txt -o /home/devin/Downloads/Attack-Detect-Harden/reports/posthardenattack.txt ssh://10.0.2.3)
