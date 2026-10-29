@@ -62,3 +62,25 @@
 - MITRE ATT&CK Techniques: Valid Accounts (T1078), Brute Force (T1110), Sudo and Sudo Caching (T154 and 8.003), 
 
 **Next:** Harden the victim machine
+
+## 10/28/2026 Phase 5
+**What I did:** 
+- Used the 35 Lynis suggestions from the baseline to make scripts/harden-victim.sh
+- Set up SSH key login from Kali before running the script so disabling password login wouldn't lock me out
+- Took a pre-hardening snapshot of the victim Ubuntu VM before making the changes
+- Changed the deliberately weak 'labuser' password after
+- Hardening Applied: UFW deault-deny with rate-limited SSH, SSH hardening (key-only, no root 3 attempts, only 'labuser'), fail2ban, password policy and aging, expanded sysctl settings, auditd and process accounting, login banners, unused protocols and USB storage blocked, compilers restricted to root, automatic security updates
+- Re-ran the attacks from Kali and re-measured: Lynis index: 66 to 82, suggestions: 35 to 26, brute-force result: fail
+- Took a post hardening snapshot
+
+**What Broke:** 
+- 'scp': Kali doesn't run an SSH server by default, so when I tried to get the script from the victim machine there was nothing listening. To fix this, I instead pushed the file from Kali to the victim.
+
+**What I learned:**
+- The machine you connect to must be running an SSH server, so 'connection refused' means nothing is listening
+- Set up key login and test it from a second terminal before disabling password login
+- Some Lynis suggestions aren't worth fixing, so I'll document them as accepted risks
+- Verification matters, so I checked each control after running the script to make sure everything matched what I intended
+
+**Next:** Write the README, incident report, and before/after comparison
+
