@@ -1,9 +1,0 @@
-| Metric | Before | After |
-|---|---|---|
-| Lynis hardening index | 66 | 82 |
-| Lynis warnings | 0 | 0 |
-| Lynis suggestions | 35 | 26 |
-| Open ports (Nmap) | 1 (SSH, 22) | 1 (SSH, 22) |
-| Wazuh SCA score | pending |  pending |
-| SSH password login | Enabled | Disabled |
-| Firewall | Off | On |
