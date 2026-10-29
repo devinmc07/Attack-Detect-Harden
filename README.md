@@ -50,10 +50,10 @@ flowchart LR
 
 ## Project phases
 
-1. **Repo and lab notebook:** semi-structured repo plus a running log in [`notes/lab-log.md`](notes/lab-log.md).
+1. **Repo and lab notebook:** semi-structured repo plus a running log in [`notes/lab-log.md`](notes/lab-log.txt).
 2. **Network and victim VM:** built the isolated network and the weak Ubuntu server.
 3. **Wazuh and agent:** installed Wazuh and connected the victim as an active agent.
-4. **Baseline:** recorded Lynis, Nmap and firewall state *before* any changes ([`reports/lynis-baseline.md`](reports/lynis-baseline.md)).
+4. **Baseline:** recorded Lynis, Nmap and firewall state *before* any changes ([`reports/lynis-baseline.md`](reports/lynis-baseline.txt)).
 5. **Attack and detect:** port scan and SSH brute force from Kali; reviewed the alerts in Wazuh.
 6. **Harden:** wrote (AI Assisted) [`scripts/harden-victim.sh`](scripts/harden-victim.sh), driven by the Lynis suggestions, and applied it.
 7. **Verify and report:** re-ran the attacks and measurements, then wrote this up.
