@@ -85,12 +85,10 @@ Each fix maps to a Lynis control ID. Suggestions I intentionally skipped (for ex
 
 ## Challenges and what I learned
 
-- **SSH "connection refused":** the server wasn't listening because `openssh-server` wasn't installed. Lesson: check that the service exists and is running before debugging the network.
-- **Shell placeholder gotcha:** I left literal `<victim-ip>` brackets in a command and zsh read them as redirection. Lesson: replace placeholders completely, brackets included.
-- **`scp` "connection refused" again:** I was pulling a file from Kali, which doesn't run an SSH server by default. Lesson: the machine you connect *to* must be running `sshd`, so I pushed from Kali to the victim instead.
+- **`scp` "connection refused":** I was pulling a file from Kali, which doesn't run an SSH server by default. Lesson: the machine you connect *to* must be running `sshd`, so I pushed from Kali to the victim instead.
 - **sshd setting precedence:** sshd uses the *first* value it reads, and cloud-init ships a config that re-enables password login. Naming my drop-in `00-hardening.conf` makes it load first.
 - **Wazuh SCA page was empty:** unresolved. I used Lynis and Nmap as the primary before/after metrics instead. [I'll update if I fix this]
-- **Verify, don't assume:** I confirmed the firewall was actually off with `sudo ufw status` rather than trusting defaults.
+- **Verify, don't assume:** I confirmed the changes were made after running the script.
 
 ## Repository structure
 
