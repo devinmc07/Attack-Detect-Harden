@@ -16,7 +16,7 @@ Everything runs in an isolated virtual lab on my laptop. No real systems were ta
 | SSH password login | Enabled | Disabled |
 | SSH brute-force outcome | Successful | Fails |
 
-Full breakdown: [`reports/before-after.md`](reports/before-after.md). Incident write-up: [`reports/incident-report.md`](reports/incident-report.md).
+Incident write-up: [`reports/incident-report.md`](reports/incident-report.md).
 
 ## What this project demonstrates
 
@@ -56,7 +56,7 @@ flowchart LR
 4. **Baseline:** recorded Lynis, Nmap and firewall state *before* any changes ([`reports/lynis-baseline.md`](reports/lynis-baseline.txt)).
 5. **Attack and detect:** port scan and SSH brute force from Kali; reviewed the alerts in Wazuh.
 6. **Harden:** wrote (AI Assisted) [`scripts/harden-victim.sh`](scripts/harden-victim.sh), driven by the Lynis suggestions, and applied it.
-7. **Verify and report:** re-ran the attacks and measurements, then wrote this up.
+7. **Verify and report:** re-ran the attacks and measurements, then wrote README and incident-report.
 
 ## Attacks and detection
 
@@ -81,8 +81,6 @@ The script is idempotent, backs up every config before changing it, and is built
 - **Visibility:** auditd rules, process accounting, login banners
 - **Maintenance:** automatic security updates
 
-Each fix maps to a Lynis control ID. Suggestions I intentionally skipped (for example, separate `/home` and `/var` partitions) are documented as accepted risks with reasons in [`reports/before-after.md`](reports/before-after.md).
-
 ## Challenges and what I learned
 
 - **`scp` "connection refused":** I was pulling a file from Kali, which doesn't run an SSH server by default. Lesson: the machine you connect *to* must be running `sshd`, so I pushed from Kali to the victim instead.
@@ -96,7 +94,7 @@ Each fix maps to a Lynis control ID. Suggestions I intentionally skipped (for ex
 Attack-Detect-Harden/
 ├── README.md
 ├── notes/          lab log
-├── reports/        baseline reports from lynis and nmap, hydra attack, incident report
+├── reports/        baseline reports from lynis, nmap, hydra attack, and other .txt files from the lab. Along with an incident report
 ├── scripts/        harden-victim.sh
 └── screenshots/    evidence from each phase
 ```
